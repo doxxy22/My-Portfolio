@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin Blog</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="dashboard-title">Dashboard Admin</h1>
+        
+        <!-- Statistik Cards -->
+        <div class="stats-grid">
+            <div class="stats-card">
+                <div class="card-header">
+                    <h3 class="card-title">Total Postingan</h3>
+                    <span class="icon">📊</span>
+                </div>
+                <div class="card-content">
+                    <div class="stats-number" id="totalPosts">0</div>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="card-header">
+                    <h3 class="card-title">Total Komentar</h3>
+                    <span class="icon">💬</span>
+                </div>
+                <div class="card-content">
+                    <div class="stats-number" id="totalComments">0</div>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="card-header">
+                    <h3 class="card-title">Pengunjung Bulan Ini</h3>
+                    <span class="icon">👥</span>
+                </div>
+                <div class="card-content">
+                    <div class="stats-number" id="totalVisitors">0</div>
+                </div>
+            </div>
+
+            <div class="stats-card">
+                <div class="card-header">
+                    <h3 class="card-title">Penjualan Bulan Ini</h3>
+                    <span class="icon">💰</span>
+                </div>
+                <div class="card-content">
+                    <div class="stats-number" id="totalSales">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grafik -->
+        <div class="charts-container">
+            <div class="chart-card">
+                <div class="card-header">
+                    <h3 class="card-title">Grafik Penjualan Tahun 2024</h3>
+                </div>
+                <div class="card-content">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="card-header">
+                    <h3 class="card-title">Statistik Pengunjung, Postingan, dan Komentar</h3>
+                </div>
+                <div class="card-content">
+                    <canvas id="statsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Manajemen Post -->
+        <div class="posts-section">
+            <div class="section-header">
+                <h2>Daftar Postingan</h2>
+                <button id="newPostBtn" class="btn btn-primary">
+                    <span class="icon">➕</span> Post Baru
+                </button>
+            </div>
+
+            <!-- Form Post Baru -->
+            <div id="newPostForm" class="post-form hidden">
+                <input type="text" id="postTitle" class="form-input" placeholder="Judul Post">
+                <textarea id="postContent" class="form-textarea" placeholder="Konten Post"></textarea>
+                <div class="form-buttons">
+                    <button id="savePostBtn" class="btn btn-primary">Simpan</button>
+                    <button id="cancelPostBtn" class="btn btn-secondary">Batal</button>
+                </div>
+            </div>
+
+            <!-- Daftar Post -->
+            <div id="postsList" class="posts-list">
+                <!-- Posts will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

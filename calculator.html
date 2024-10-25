@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div class="previous-operand"></div>
+            <div class="current-operand">0</div>
+        </div>
+        <div class="buttons">
+            <button class="special" onclick="clearHistory()">C</button>
+            <button class="special" onclick="clearEntry()">CE</button>
+            <button class="operator" onclick="backspace()">⌫</button>
+            <button class="operator" onclick="addOperator('÷')">÷</button>
+            
+            <button onclick="addNumber('7')">7</button>
+            <button onclick="addNumber('8')">8</button>
+            <button onclick="addNumber('9')">9</button>
+            <button class="operator" onclick="addOperator('×')">×</button>
+            
+            <button onclick="addNumber('4')">4</button>
+            <button onclick="addNumber('5')">5</button>
+            <button onclick="addNumber('6')">6</button>
+            <button class="operator" onclick="addOperator('-')">-</button>
+            
+            <button onclick="addNumber('1')">1</button>
+            <button onclick="addNumber('2')">2</button>
+            <button onclick="addNumber('3')">3</button>
+            <button class="operator" onclick="addOperator('+')">+</button>
+            
+            <button onclick="toggleSign()">±</button>
+            <button onclick="addNumber('0')">0</button>
+            <button onclick="addDecimal()">.</button>
+            <button class="operator" onclick="calculate()">=</button>
+            
+            <button class="function" onclick="calculateSquareRoot()">√</button>
+            <button class="function" onclick="calculatePercent()">%</button>
+            <button class="function" onclick="calculatePower()">x²</button>
+            <button class="function" onclick="calculateInverse()">1/x</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Interaktif</title>
+    <link rel="stylesheet" href="landing.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Rido Anugrah</div> 
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-content">
+            <h1>Selamat Datang di Website Saya</h1>
+            <p>Perjalanan Anda menuju pengalaman yang lebih baik dimulai di sini.</p>
+            <a href="#about" class="cta-btn">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <section id="about" class="hidden">
+        <h2>Tentang Kami</h2>
+        <p>Kami adalah tim profesional yang berdedikasi untuk memberikan layanan dan produk terbaik kepada Anda.</p>
+    </section>
+
+    <section id="services" class="hidden">
+        <h2>Layanan Kami</h2>
+        <div class="service-container">
+            <div class="service">
+                <h3>Pengembangan Web</h3>
+                <p>Kami membangun situs web modern dan responsif.</p>
+            </div>
+            <div class="service">
+                <h3>Aplikasi Mobile</h3>
+                <p>Membuat aplikasi mobile yang ramah pengguna untuk bisnis Anda.</p>
+            </div>
+            <div class="service">
+                <h3>Optimasi SEO</h3>
+                <p>Mengoptimalkan situs Anda agar tampil lebih tinggi di mesin pencari.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="hidden">
+        <h2>Hubungi Kami</h2>
+        <p>Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi kami!</p>
+        <form>
+            <input type="text" placeholder="Nama Anda" required>
+            <input type="email" placeholder="Email Anda" required>
+            <textarea placeholder="Pesan Anda" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MyWebsite. All Rights Reserved.</p>
+    </footer>
+
+    <script src="landing.js"></script>
+</body>
+</html>
