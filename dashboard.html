@@ -5,102 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin Blog</title>
     <link rel="stylesheet" href="dashboard.css">
+    <!-- Tambahan Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="dashboard-title">Dashboard Admin</h1>
-        
-        <!-- Statistik Cards -->
-        <div class="stats-grid">
-            <div class="stats-card">
-                <div class="card-header">
-                    <h3 class="card-title">Total Postingan</h3>
-                    <span class="icon">📊</span>
-                </div>
-                <div class="card-content">
-                    <div class="stats-number" id="totalPosts">0</div>
-                </div>
-            </div>
-
-            <div class="stats-card">
-                <div class="card-header">
-                    <h3 class="card-title">Total Komentar</h3>
-                    <span class="icon">💬</span>
-                </div>
-                <div class="card-content">
-                    <div class="stats-number" id="totalComments">0</div>
-                </div>
-            </div>
-
-            <div class="stats-card">
-                <div class="card-header">
-                    <h3 class="card-title">Pengunjung Bulan Ini</h3>
-                    <span class="icon">👥</span>
-                </div>
-                <div class="card-content">
-                    <div class="stats-number" id="totalVisitors">0</div>
-                </div>
-            </div>
-
-            <div class="stats-card">
-                <div class="card-header">
-                    <h3 class="card-title">Penjualan Bulan Ini</h3>
-                    <span class="icon">💰</span>
-                </div>
-                <div class="card-content">
-                    <div class="stats-number" id="totalSales">0</div>
-                </div>
-            </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="IMG_20220306_145552_461.jpg" alt="Logo" class="logo">
+            <h2>Admin Panel</h2>
         </div>
-
-        <!-- Grafik -->
-        <div class="charts-container">
-            <div class="chart-card">
-                <div class="card-header">
-                    <h3 class="card-title">Grafik Penjualan Tahun 2024</h3>
-                </div>
-                <div class="card-content">
-                    <canvas id="salesChart"></canvas>
-                </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="active">
+                    <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#posts"><i class="fas fa-blog"></i> Postingan</a>
+                </li>
+                <li>
+                    <a href="#comments"><i class="fas fa-comments"></i> Komentar</a>
+                </li>
+                <li>
+                    <a href="#users"><i class="fas fa-users"></i> Pengguna</a>
+                </li>
+                <li>
+                    <a href="#settings"><i class="fas fa-cog"></i> Pengaturan</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <header class="top-header">
+            <button id="sidebarToggle" class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-search">
+                <input type="search" placeholder="Cari...">
+                <i class="fas fa-search"></i>
             </div>
-
-            <div class="chart-card">
-                <div class="card-header">
-                    <h3 class="card-title">Statistik Pengunjung, Postingan, dan Komentar</h3>
-                </div>
-                <div class="card-content">
-                    <canvas id="statsChart"></canvas>
-                </div>
-            </div>
-        </div>
-
-        <!-- Manajemen Post -->
-        <div class="posts-section">
-            <div class="section-header">
-                <h2>Daftar Postingan</h2>
-                <button id="newPostBtn" class="btn btn-primary">
-                    <span class="icon">➕</span> Post Baru
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <button class="messages-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span class="badge">5</span>
                 </button>
             </div>
+        </header>
 
-            <!-- Form Post Baru -->
-            <div id="newPostForm" class="post-form hidden">
-                <input type="text" id="postTitle" class="form-input" placeholder="Judul Post">
-                <textarea id="postContent" class="form-textarea" placeholder="Konten Post"></textarea>
-                <div class="form-buttons">
-                    <button id="savePostBtn" class="btn btn-primary">Simpan</button>
-                    <button id="cancelPostBtn" class="btn btn-secondary">Batal</button>
+        <div class="container">
+            <h1 class="dashboard-title">Dashboard Admin</h1>
+            
+            <!-- Statistik Cards -->
+            <div class="stats-grid">
+                <div class="stats-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Postingan</h3>
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="stats-number" id="totalPosts">0</div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Total Komentar</h3>
+                        <span class="icon">💬</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="stats-number" id="totalComments">0</div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Pengunjung Bulan Ini</h3>
+                        <span class="icon">👥</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="stats-number" id="totalVisitors">0</div>
+                    </div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Penjualan Bulan Ini</h3>
+                        <span class="icon">💰</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="stats-number" id="totalSales">0</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Daftar Post -->
-            <div id="postsList" class="posts-list">
-                <!-- Posts will be inserted here by JavaScript -->
+            <!-- Grafik -->
+            <div class="charts-container">
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Grafik Penjualan Tahun 2024</h3>
+                    </div>
+                    <div class="card-content">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3 class="card-title">Statistik Pengunjung, Postingan, dan Komentar</h3>
+                    </div>
+                    <div class="card-content">
+                        <canvas id="statsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manajemen Post -->
+            <div class="posts-section">
+                <div class="section-header">
+                    <h2>Daftar Postingan</h2>
+                    <button id="newPostBtn" class="btn btn-primary">
+                        <span class="icon">➕</span> Post Baru
+                    </button>
+                </div>
+
+                <!-- Form Post Baru -->
+                <div id="newPostForm" class="post-form hidden">
+                    <input type="text" id="postTitle" class="form-input" placeholder="Judul Post">
+                    <textarea id="postContent" class="form-textarea" placeholder="Konten Post"></textarea>
+                    <div class="form-buttons">
+                        <button id="savePostBtn" class="btn btn-primary">Simpan</button>
+                        <button id="cancelPostBtn" class="btn btn-secondary">Batal</button>
+                    </div>
+                </div>
+
+                <!-- Daftar Post -->
+                <div id="postsList" class="posts-list">
+                    <!-- Posts will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Tambahan Quick Actions -->
+            <div class="quick-actions">
+                <h2>Aksi Cepat</h2>
+                <div class="action-buttons">
+                    <button class="action-btn">
+                        <i class="fas fa-plus"></i>
+                        Post Baru
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-upload"></i>
+                        Upload Media
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-users"></i>
+                        Kelola User
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-cog"></i>
+                        Pengaturan
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="app.js"></script>
+    <script src="sidebar.js"></script>
 </body>
 </html>
