@@ -266,43 +266,18 @@ const typed = new Typed('.typing', {
    /* smoothscroll
     * ------------------------------------------------------ */
     const ssMoveTo = function() {
-
-        const easeFunctions = {
-            easeInQuad: function (t, b, c, d) {
-                t /= d;
-                return c * t * t + b;
-            },
-            easeOutQuad: function (t, b, c, d) {
-                t /= d;
-                return -c * t* (t - 2) + b;
-            },
-            easeInOutQuad: function (t, b, c, d) {
-                t /= d/2;
-                if (t < 1) return c/2*t*t + b;
-                t--;
-                return -c/2 * (t*(t-2) - 1) + b;
-            },
-            easeInOutCubic: function (t, b, c, d) {
-                t /= d/2;
-                if (t < 1) return c/2*t*t*t + b;
-                t -= 2;
-                return c/2*(t*t*t + 2) + b;
-            }
-        }
-
-        const triggers = document.querySelectorAll('.smoothscroll');
-        
-        const moveTo = new MoveTo({
-            tolerance: 0,
-            duration: 1200,
-            easing: 'easeInOutCubic',
-            container: window
-        }, easeFunctions);
-
-        triggers.forEach(function(trigger) {
-            moveTo.registerTrigger(trigger);
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-
     }; // end ssMoveTo
 
 
@@ -319,79 +294,12 @@ const typed = new Typed('.typing', {
         ssAlertBoxes();
         ssMoveTo();
 
-    })();
-
-})(document.documentElement);
-(function(html) {
-
-    'use strict';
-
-    // ... (kode yang sudah ada) ...
-
-    /* Typing effect */
-    const typed = new Typed('.typing', {
-        strings: ['Web Developer', 'IT Student', 'Tech Enthusiast'],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-
-    /* AOS initialization */
-    AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
-        once: true,
-        offset: 100
-    });
-
-    /* Parallax effect */
-    $('.parallax-window').parallax({imageSrc: 'GUA.jpg'});
-
-    /* Skill bars animation */
-    const animateSkillBars = function() {
-        $('.skill-bars__bar').each(function() {
-            let bar = $(this);
-            let percentage = bar.data('percent');
-            bar.find('span').text(percentage);
-            bar.css('width', percentage);
+        // Initialize AOS
+        AOS.init({
+            duration: 2500, // Durasi animasi dalam milidetik (lebih lambat)
+            once: true // Animasi hanya terjadi sekali
         });
-    };
 
-    /* Smooth scrolling */
-    $('a.smoothscroll').on('click', function(e) {
-        e.preventDefault();
-        var target = this.hash;
-        $('html, body').stop().animate({
-            'scrollTop': $(target).offset().top
-        }, 800, 'swing', function() {
-            window.location.hash = target;
-        });
-    });
-
-    /* Form submission */
-    $('#contactForm').on('submit', function(e) {
-        e.preventDefault();
-        // Here you would typically send the form data to a server
-        alert('Thank you for your message! I will get back to you soon.');
-        this.reset();
-    });
-
-    window.addEventListener('scroll', function() {
-        var scrollPosition = window.pageYOffset;
-        document.querySelector('.intro-background').style.backgroundPositionY = -scrollPosition * 0.5 + 'px';
-    });
-
-    /* Initialize */
-    (function ssInit() {
-        ssPreloader();
-        ssMoveHeader();
-        ssMobileMenu();
-        ssScrollSpy();
-        ssGLightbox();
-        ssSwiper();
-        ssAlertBoxes();
-        ssBackToTop();
-        animateSkillBars();
     })();
 
 })(document.documentElement);
